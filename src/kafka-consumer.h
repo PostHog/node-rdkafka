@@ -112,7 +112,7 @@ class KafkaConsumer : public Connection {
   static NAN_METHOD(NodeUnassign);
   static NAN_METHOD(NodeIncrementalUnassign);
   static NAN_METHOD(NodeAssignmentLost);
-  static NAN_METHOD(NodeAssignment);
+  static NAN_METHOD(NodeAssignments);
   static NAN_METHOD(NodeUnsubscribe);
   static NAN_METHOD(NodeCommit);
   static NAN_METHOD(NodeCommitSync);
