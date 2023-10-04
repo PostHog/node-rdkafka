@@ -596,7 +596,7 @@ void KafkaConsumer::Init(v8::Local<v8::Object> exports) {
   Nan::SetPrototypeMethod(tpl, "incrementalAssign", NodeIncrementalAssign);
   Nan::SetPrototypeMethod(tpl, "unassign", NodeUnassign);
   Nan::SetPrototypeMethod(tpl, "incrementalUnassign", NodeIncrementalUnassign);
-  Nan::SetPrototypeMethod(tpl, "assignments", NodeAssignment);
+  Nan::SetPrototypeMethod(tpl, "assignments", NodeAssignments);
   Nan::SetPrototypeMethod(tpl, "assignmentLost", NodeAssignmentLost);
 
   Nan::SetPrototypeMethod(tpl, "commit", NodeCommit);
@@ -753,7 +753,7 @@ NAN_METHOD(KafkaConsumer::NodePosition) {
   RdKafka::TopicPartition::destroy(toppars);
 }
 
-NAN_METHOD(KafkaConsumer::NodeAssignment) {
+NAN_METHOD(KafkaConsumer::NodeAssignments) {
   Nan::HandleScope scope;
 
   KafkaConsumer* consumer = ObjectWrap::Unwrap<KafkaConsumer>(info.This());
@@ -1387,7 +1387,7 @@ NAN_METHOD(KafkaConsumer::NodeDisconnect) {
     // cleanup the async worker
     consumeLoop->WorkComplete();
     consumeLoop->Destroy();
-
+  
     consumer->m_consume_loop = nullptr;
   }
 
