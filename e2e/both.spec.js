@@ -163,7 +163,7 @@ describe('Consumer/Producer', function() {
 
     });
   });
-
+  
   it('should return ready messages on partition EOF', function(done) {
     crypto.randomBytes(4096, function(ex, buffer) {
       producer.setPollInterval(10);
